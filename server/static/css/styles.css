@@ -1,0 +1,9 @@
+section {
+  background-color: lightgreen;
+}
+
+span {
+  height: 20%;
+  width: 70%;
+  fill: red;
+}
