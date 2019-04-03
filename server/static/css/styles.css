@@ -1,9 +1,190 @@
-section {
-  background-color: lightgreen;
+@font-face {
+  font-family: 'Brando';
+  src: url('fonts/Brando-Sans-Text.otf'); /* IE9 Compat Modes */
+  src: url('fonts/Brando-Sans-Text.otf') format('otf'), /* IE6-IE8 */
+       url('fonts/Brando-Sans-Text.woff') format('woff'), /* Super Modern Browsers */
 }
 
-span {
-  height: 20%;
-  width: 70%;
-  fill: red;
+@font-face {
+  font-family: 'Brando Semibold';
+  src: url('fonts/Brando-Sans-SemiBold.otf'); /* IE9 Compat Modes */
+  src: url('fonts/Brando-Sans-SemiBold.otf') format('otf'), /* IE6-IE8 */
+       url('fonts/Brando-Sans-Semi-Bold.woff') format('woff'), /* Super Modern Browsers */
+}
+
+@font-face {
+  font-family: 'Brando Light';
+  src: url('fonts/Brando-Sans-Light.otf'); /* IE9 Compat Modes */
+  src: url('fonts/Brando-Sans-Light.otf') format('otf'), /* IE6-IE8 */
+       url('fonts/Brando-Sans-Light.woff') format('woff'), /* Super Modern Browsers */
+}
+
+/* colors */
+:root {
+  --color-text: #242829;
+  --color-text-free: green;
+  --color-text-taken: red;
+  --color-text-special: #C23EE6;
+  --color-title: #909090;
+  --color-title-dark: #242829;
+  --color-room-free: #FFF;
+  --color-room-taken: tomato;
+  --color-bar-good: lightgreen;
+  --color-bar-middle: darkorange;
+  --color-bar-bad: tomato;
+  --color-backgr: #272B2C;
+  --color-backgr-light: #FFF;
+  --color-backgr-special: #DDD;
+}
+
+/* general */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-size: 16px;
+  height: 100%;
+  width: 100vw;
+  padding: 0 1rem;
+  text-align: center;
+  font-family: 'Brando', sans-serif;
+  background-color: var(--color-backgr);
+}
+
+main {
+  height: 100%;
+  margin: 1.5rem 0 2rem;
+  justify-content: center;
+  display: grid;
+  grid-template-areas:
+  "free free"
+  "taken taken";
+  grid-template-columns: repeat(2, 45%);
+  grid-template-rows: auto;
+  grid-gap: 3rem;
+}
+
+.rooms__available {
+  grid-area: free;
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  grid-template-rows: auto;
+  grid-gap: 3rem;
+}
+
+.rooms__occupied {
+  grid-area: taken;
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  grid-template-rows: auto;
+  grid-gap: 3rem;
+}
+
+h1, h2, h3 {
+  font-family: 'Brando Semibold', sans-serif;
+  margin: 1rem 0;
+  color: var(--color-title);
+}
+
+h2, h3 {
+  display: inline;
+  margin: 0;
+}
+
+.header {
+  margin: 1.5rem 0;
+}
+
+.time {
+  color: var(--color-backgr-light)
+}
+
+p {
+  font-family: 'Brando Light', sans-serif;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+input[type="checkbox"]:checked ~ .btn__book {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ .btn__booked {
+  display: inline;
+  height: 2rem;
+  border: solid 1px var(--color-bar-middle);
+  border-radius: 5px;
+  padding: 0.25rem .5rem;
+  float: right;
+  margin-right: 1rem;
+  color: var(--color-bar-middle);
+}
+
+.value {
+  display: flex;
+}
+
+.btn {
+  height: 2rem;
+  border: solid 1px #aaa;
+  border-radius: 5px;
+  padding: .35rem .5rem;
+  float: right;
+  margin-right: 1rem;
+  color: var(--color-title);
+}
+
+.btn__booked {
+  display: none;
+}
+
+/* room block */
+.room {
+  height: 100%;
+  padding: 0.5rem;
+  text-align: left;
+  border-radius: 5px;
+  background-color: var(--color-room-free);
+}
+
+.room:hover, .room:focus {
+  transform: scale(1.01);
+  box-shadow: -10px -8px 20px -4px rgba(25,25,25,1);
+}
+
+.room__free {
+  height: 2rem;
+  border: solid 1px var(--color-text-free);
+  border-radius: 5px;
+  padding: 0.25rem .5rem;
+  float: right;
+  color: var(--color-text-free);
+}
+
+.room__taken {
+  height: 2rem;
+  border: solid 1px var(--color-text-taken);
+  border-radius: 5px;
+  padding: 0.25rem .5rem;
+  float: right;
+  color: var(--color-text-taken);
+}
+
+.room__name {
+  color: var(--color-title-dark);
+}
+
+.temp, .humidity, .co2, .bap {
+  width: 100%;
+  height: 2rem;
+  display: block;
+  text-align: left;
+  padding: .5rem;
+  margin-bottom: .3rem;
+  background-color: var(--color-bar-good);
+  color: var(--color-title-dark);
 }

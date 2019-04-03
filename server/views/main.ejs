@@ -4,24 +4,38 @@
 <% include partials/head.ejs %>
 
 <body>
+  <% include partials/header.ejs %>
 
   <main>
+      <% data.forEach(function (room) { %>
+        <% if(room.occupied === false) { %>
+          <section class="room">
+            <div class="header">
+              <h2 class="room__name"><%= room.name %></h2>
+              <h3 class="room__free">Available</h3>
+              <input id="<%= room.name %>" type="checkbox" name="book" hidden>
+              <label class="btn btn__book" for="<%= room.name %>">Reserveren</label>
+              <label class="btn btn__booked" for="<%= room.name %>">Gereserveerd</label>
+            </div>
+            <div class="container">
+              <span class="temp"><%= room.temp %>°C</span>
+              <span class="humidity"><%= room.humidity %>%</span>
+              <span class="co2"><%= room.co2 %></span>
+              <span class="bap"><%= room.pressure %></span>
+            </div>
+          </section>
+        <% } %>
 
-    <h1>Vergaderruimtes</h1>
+        <% if(room.occupied === true) { %>
+          <section class="room">
+            <div class="header">
+              <h2 class="room__name"><%= room.name %></h2>
+              <h3 class="room__taken">Occupied</h3>
+            </div>
+          </section>
+        <% } %>
 
-    <section>
-
-      <h2>Starkweather</h2>
-      <p>Het is nu: time stamp</p>
-
-      <div class="container">
-        <span class="temp"></span>
-        <span class="humidity"></span>
-        <span class="co2"></span>
-        <span class="bap"></span>
-      </div>
-
-    </section>
+      <% }) %>
 
   </main>
 

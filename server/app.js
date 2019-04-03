@@ -29,22 +29,24 @@ function index(req, res, err) {
   function callback(error, result, body){
     let data = JSON.parse(body).data
 
+    let date = new Date().toLocaleTimeString()
+
     let goodData = data.map(room => (
       {
         name: room.room_name,
-        time: room.timestamp,
         temp: parseFloat(Math.floor(room.measurements.temperature/100)/10).toFixed(1),
         co2: room.measurements.co2,
-        humidity: room.measurements.humidity,
+        humidity: parseFloat(Math.round(room.measurements.humidity/100)/10).toFixed(1),
         pressure: room.measurements.bapLevel,
         occupied: room.measurements.occupancy
       }
-    ))
+    )).sort((a, b) => b.occupied - a.occupied).reverse()
 
     console.log("data: ", goodData)
 
     res.render('main.ejs', {
-      data: data
+      data: goodData,
+      date: date
     })
   }
 }
