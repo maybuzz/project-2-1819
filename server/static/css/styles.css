@@ -43,6 +43,7 @@
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
+  transition: .2s ease-out;
 }
 
 body {
@@ -58,32 +59,44 @@ body {
 main {
   height: 100%;
   margin: 1.5rem 0 2rem;
-  justify-content: center;
   display: grid;
   grid-template-areas:
-  "free free"
-  "taken taken";
-  grid-template-columns: repeat(2, 45%);
+  "free"
+  "taken";
+  grid-template-columns: 100%;
   grid-template-rows: auto;
   grid-gap: 3rem;
 }
 
-.rooms__available {
+.freeRooms {
   grid-area: free;
   display: grid;
   grid-template-columns: repeat(2, 45%);
   grid-template-rows: auto;
   grid-gap: 3rem;
+  justify-content: center;
 }
 
-.rooms__occupied {
+.takenRooms {
   grid-area: taken;
   display: grid;
   grid-template-columns: repeat(2, 45%);
   grid-template-rows: auto;
   grid-gap: 3rem;
+  justify-content: center;
 }
 
+/* header */
+.header {
+  margin: 1.5rem 0;
+}
+
+.time {
+  font-family: 'Brando Light', sans-serif;
+  color: var(--color-backgr-light)
+}
+
+/* text */
 h1, h2, h3 {
   font-family: 'Brando Semibold', sans-serif;
   margin: 1rem 0;
@@ -95,12 +108,8 @@ h2, h3 {
   margin: 0;
 }
 
-.header {
-  margin: 1.5rem 0;
-}
-
-.time {
-  color: var(--color-backgr-light)
+h3 {
+  font-family: 'Brando', sans-serif;
 }
 
 p {
@@ -109,25 +118,11 @@ p {
   color: var(--color-text);
 }
 
-input[type="checkbox"]:checked ~ .btn__book {
-  display: none;
-}
-
-input[type="checkbox"]:checked ~ .btn__booked {
-  display: inline;
-  height: 2rem;
-  border: solid 1px var(--color-bar-middle);
-  border-radius: 5px;
-  padding: 0.25rem .5rem;
-  float: right;
-  margin-right: 1rem;
+.amount, .total {
   color: var(--color-bar-middle);
 }
 
-.value {
-  display: flex;
-}
-
+/* buttons */
 .btn {
   height: 2rem;
   border: solid 1px #aaa;
@@ -142,6 +137,32 @@ input[type="checkbox"]:checked ~ .btn__booked {
   display: none;
 }
 
+input[type="checkbox"]:checked ~ .btn__book {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ .btn__booked {
+  display: inline;
+  height: 2rem;
+  border: solid 1px var(--color-bar-middle);
+  border-radius: 5px;
+  padding: 0.35rem .5rem;
+  float: right;
+  margin-right: 1rem;
+  color: var(--color-bar-middle);
+}
+
+.btn__book:hover, .btn__book:focus {
+  color: var(--color-title-dark);
+  border-color: var(--color-title-dark);
+}
+
+.btn__booked:hover, .btn__booked:focus {
+  color: var(--color-bar-bad) !important;
+  border-color: var(--color-bar-bad) !important;
+}
+
+/* styles */
 /* room block */
 .room {
   height: 100%;
@@ -149,14 +170,20 @@ input[type="checkbox"]:checked ~ .btn__booked {
   text-align: left;
   border-radius: 5px;
   background-color: var(--color-room-free);
+  box-shadow: -10px -8px 20px -4px rgba(7.5,7.5,7.5,1);
 }
 
 .room:hover, .room:focus {
   transform: scale(1.01);
-  box-shadow: -10px -8px 20px -4px rgba(25,25,25,1);
+  transition: .35s ease-out;
 }
 
-.room__free {
+.room__btns {
+  display: flex;
+  float: right;
+}
+
+.free {
   height: 2rem;
   border: solid 1px var(--color-text-free);
   border-radius: 5px;
@@ -165,7 +192,7 @@ input[type="checkbox"]:checked ~ .btn__booked {
   color: var(--color-text-free);
 }
 
-.room__taken {
+.taken {
   height: 2rem;
   border: solid 1px var(--color-text-taken);
   border-radius: 5px;
@@ -178,13 +205,71 @@ input[type="checkbox"]:checked ~ .btn__booked {
   color: var(--color-title-dark);
 }
 
+/* bars */
 .temp, .humidity, .co2, .bap {
   width: 100%;
   height: 2rem;
   display: block;
-  text-align: left;
+  text-align: right;
   padding: .5rem;
   margin-bottom: .3rem;
   background-color: var(--color-bar-good);
   color: var(--color-title-dark);
+}
+
+.label {
+  display: inline;
+  float: left;
+}
+
+
+
+
+/* tablet */
+@media (max-width: 54em) {
+  body {
+    background-color: green;
+  }
+
+  main {
+    margin: 1.5rem 0 2rem;
+    grid-gap: 2rem;
+  }
+
+  .room__btns {
+  }
+}
+
+/* mobile */
+@media (max-width: 36em) {
+  body {
+    background-color: yellow;
+  }
+
+  main {
+    grid-template-areas:
+    "free"
+    "taken";
+    grid-template-columns: 90vw;
+    grid-template-rows: auto;
+    grid-gap: 3rem;
+  }
+
+  .freeRooms {
+    grid-area: free;
+    display: grid;
+    grid-template-columns: 90vw;
+    grid-template-rows: auto;
+    grid-gap: 3rem;
+    justify-content: center;
+  }
+
+  .takenRooms {
+    grid-area: taken;
+    display: grid;
+    grid-template-columns: 90vw;
+    grid-template-rows: auto;
+    grid-gap: 3rem;
+    justify-content: center;
+  }
 }

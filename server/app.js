@@ -40,12 +40,22 @@ function index(req, res, err) {
         pressure: room.measurements.bapLevel,
         occupied: room.measurements.occupancy
       }
-    )).sort((a, b) => b.occupied - a.occupied).reverse()
+    ))
 
-    console.log("data: ", goodData)
+    const freeRooms = goodData.filter(room => {
+      return room.occupied === false
+    })
+
+    const takenRooms = goodData.filter(room => {
+      return room.occupied === true
+    }).reverse()
+
+    console.log("data: ", takenRooms)
 
     res.render('main.ejs', {
-      data: goodData,
+      free: freeRooms,
+      taken: takenRooms,
+      data: data,
       date: date
     })
   }
