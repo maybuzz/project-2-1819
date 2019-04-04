@@ -1,12 +1,15 @@
 @font-face {
   font-family: 'Brando';
+  font-display: swap;
   src: url('fonts/Brando-Sans-Text.otf'); /* IE9 Compat Modes */
   src: url('fonts/Brando-Sans-Text.otf') format('otf'), /* IE6-IE8 */
        url('fonts/Brando-Sans-Text.woff') format('woff'), /* Super Modern Browsers */
+
 }
 
 @font-face {
   font-family: 'Brando Semibold';
+  font-display: swap;
   src: url('fonts/Brando-Sans-SemiBold.otf'); /* IE9 Compat Modes */
   src: url('fonts/Brando-Sans-SemiBold.otf') format('otf'), /* IE6-IE8 */
        url('fonts/Brando-Sans-Semi-Bold.woff') format('woff'), /* Super Modern Browsers */
@@ -14,6 +17,7 @@
 
 @font-face {
   font-family: 'Brando Light';
+  font-display: swap;
   src: url('fonts/Brando-Sans-Light.otf'); /* IE9 Compat Modes */
   src: url('fonts/Brando-Sans-Light.otf') format('otf'), /* IE6-IE8 */
        url('fonts/Brando-Sans-Light.woff') format('woff'), /* Super Modern Browsers */
@@ -24,9 +28,9 @@
   --color-text: #242829;
   --color-text-free: green;
   --color-text-taken: red;
-  --color-text-special: #C23EE6;
-  --color-title: #909090;
-  --color-title-dark: #242829;
+  --color-title: #999999;
+  --color-title-dark: #404040;
+  --color-title-darkest: #242829;
   --color-room-free: #FFF;
   --color-room-taken: tomato;
   --color-bar-good: lightgreen;
@@ -34,7 +38,6 @@
   --color-bar-bad: tomato;
   --color-backgr: #272B2C;
   --color-backgr-light: #FFF;
-  --color-backgr-special: #DDD;
 }
 
 /* general */
@@ -124,13 +127,15 @@ p {
 
 /* buttons */
 .btn {
+  margin-top: -2.5rem;
+  background-color: #fff;
   height: 2rem;
-  border: solid 1px #aaa;
+  background-color: var(--color-title);
   border-radius: 5px;
   padding: .35rem .5rem;
   float: right;
   margin-right: 1rem;
-  color: var(--color-title);
+  color: #fff;
 }
 
 .btn__booked {
@@ -144,21 +149,21 @@ input[type="checkbox"]:checked ~ .btn__book {
 input[type="checkbox"]:checked ~ .btn__booked {
   display: inline;
   height: 2rem;
-  border: solid 1px var(--color-bar-middle);
+  background-color: var(--color-bar-middle);
   border-radius: 5px;
   padding: 0.35rem .5rem;
   float: right;
-  color: var(--color-bar-middle);
+  color: #fff;
 }
 
 .btn__book:hover, .btn__book:focus {
-  color: var(--color-title-dark);
-  border-color: var(--color-title-dark);
+  color: #fff;
+  background-color: var(--color-title-dark);
 }
 
 .btn__booked:hover, .btn__booked:focus {
-  color: var(--color-bar-bad) !important;
-  border-color: var(--color-bar-bad) !important;
+  color: #fff !important;
+  background-color: var(--color-bar-bad) !important;
 }
 
 /* styles */
@@ -183,21 +188,23 @@ input[type="checkbox"]:checked ~ .btn__booked {
 }
 
 .free {
+  margin-top: -2.5rem;
   height: 2rem;
-  border: solid 1px var(--color-text-free);
+  background-color: var(--color-text-free);
   border-radius: 5px;
   padding: 0.25rem .5rem;
   float: right;
-  color: var(--color-text-free);
+  color: #fff;
 }
 
 .taken {
+  margin-top: -2.5rem;
   height: 2rem;
-  border: solid 1px var(--color-text-taken);
+  background-color: var(--color-room-taken);
   border-radius: 5px;
   padding: 0.25rem .5rem;
   float: right;
-  color: var(--color-text-taken);
+  color: #fff;
 }
 
 .room__name {
@@ -206,19 +213,33 @@ input[type="checkbox"]:checked ~ .btn__booked {
 
 /* bars */
 .temp, .humidity, .co2, .bap {
-  width: 100%;
+  width: 90%;
   height: 2rem;
   display: block;
   text-align: right;
-  padding: .5rem;
   margin-bottom: .3rem;
-  background-color: var(--color-bar-good);
   color: var(--color-title-dark);
 }
 
+.temp__bar, .humidity__bar, .co2__bar {
+  padding-top: .45rem;
+  padding-left: .5rem;
+  height: 2rem;
+  background-color: var(--color-bar-good);
+}
+
 .label {
+  color: var(--color-title-dark);
   display: inline;
   float: left;
+  margin-right: .5rem;
+}
+
+.value {
+  font-family: 'Brando Semibold', sans-serif;
+  font-size: 1.15rem;
+  margin-right: -3.5rem;
+  display: inline-block;
 }
 
 
@@ -253,9 +274,7 @@ input[type="checkbox"]:checked ~ .btn__booked {
   }
 
   /* rooms */
-  .room__btns {
-    flex-direction: column-reverse;
-  }
+
 }
 
 /* mobile */
@@ -292,7 +311,16 @@ input[type="checkbox"]:checked ~ .btn__booked {
   /* buttons */
 
   /* header */
+  .header {
+    height: 15%;
+  }
+
+  .free {
+    margin-left: 1rem;
+  }
 
   /* rooms */
-
+  .room__btns {
+    flex-direction: row;
+  }
 }

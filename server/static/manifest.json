@@ -1,0 +1,17 @@
+{
+  "name": "Maribeau meeting rooms",
+  "short_name": "Maribeau rooms",
+  "icons": [{
+    "src": "img/maribeau-icon-500.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }, {
+      "src": "img/maribeau-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#404040",
+  "theme_color": "#999999"
+}

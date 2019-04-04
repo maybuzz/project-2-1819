@@ -13,26 +13,26 @@
               <div class="header">
                 <h2 class="room__name"><%= freeRoom.name %></h2>
                 <div class="room__btns">
-                  <input id="<%= freeRoom.name %>" type="checkbox" name="book" hidden>
-                  <label class="btn btn__book" for="<%= freeRoom.name %>">reserveren</label>
-                  <label class="btn btn__booked" for="<%= freeRoom.name %>">gereserveerd</label>
+                  <input id="<%= freeRoom.name %>" class="checkbox" type="checkbox" name="book" value="<%= freeRoom.name %>" hidden>
+                  <label class="btn btn__book" for="<%= freeRoom.name %>">book room</label>
+                  <label class="btn btn__booked" for="<%= freeRoom.name %>">room booked</label>
                   <h3 class="free">available</h3>
                 </div>
               </div>
+
               <div class="container">
                 <div class="temp">
-                  <span><p class="label">temperature</p> <%= freeRoom.temp %>°C</span>
+                  <div class="temp__bar" style="width: <%= freeRoom.tempCalc %>%"><p class="label">temperature</p><p class="value"><%= freeRoom.temp %>°C</p></div>
                 </div>
                 <div class="humidity">
-                  <span><p class="label">humidity</p> <%= freeRoom.humidity %>%</span>
+                  <div class="humidity__bar" style="width: <%= freeRoom.humidity %>%"><p class="label">humidity</p><p class="value"><%= freeRoom.humidity %>%</p></div>
                 </div>
                 <div class="co2">
-                  <span><p class="label">co2</p> <%= freeRoom.co2 %></span>
+                  <div class="co2__bar" style="width: <%= freeRoom.co2Calc %>%"><p class="label">co2</p><p class="value"><%= freeRoom.co2 %></p></div>
                 </div>
-                <!-- <div class="bap">
-                  <span><p class="label">baplevel</p> <%= freeRoom.pressure %></span>
-                </div> -->
+
               </div>
+
             </section>
         <% }) %>
       </section>
