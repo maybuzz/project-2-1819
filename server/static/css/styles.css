@@ -148,7 +148,6 @@ input[type="checkbox"]:checked ~ .btn__booked {
   border-radius: 5px;
   padding: 0.35rem .5rem;
   float: right;
-  margin-right: 1rem;
   color: var(--color-bar-middle);
 }
 
@@ -227,25 +226,42 @@ input[type="checkbox"]:checked ~ .btn__booked {
 
 /* tablet */
 @media (max-width: 54em) {
-  body {
-    background-color: green;
-  }
 
+  /* layout */
   main {
     margin: 1.5rem 0 2rem;
     grid-gap: 2rem;
   }
 
+  .freeRooms {
+    height: 100%;
+  }
+
+  /* buttons */
+  .btn {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  /* header */
+  .header {
+    height: 30%;
+  }
+
+  .free {
+    margin-bottom: .5rem;
+  }
+
+  /* rooms */
   .room__btns {
+    flex-direction: column-reverse;
   }
 }
 
 /* mobile */
 @media (max-width: 36em) {
-  body {
-    background-color: yellow;
-  }
 
+  /* layout */
   main {
     grid-template-areas:
     "free"
@@ -272,4 +288,11 @@ input[type="checkbox"]:checked ~ .btn__booked {
     grid-gap: 3rem;
     justify-content: center;
   }
+
+  /* buttons */
+
+  /* header */
+
+  /* rooms */
+
 }
