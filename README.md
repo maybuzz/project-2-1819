@@ -57,7 +57,6 @@ The application should be able to...
   - [ ] Change color span according to value
   - [ ] Update data without refresh
   - [ ] Notification when level raise to high
-  - [ ] Inform users about the environmental conditions (how they effect each other etc.)
 - [ ] Performance
   - [ ] Perceived performance
   - [ ] Critical css

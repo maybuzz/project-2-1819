@@ -299,19 +299,33 @@ input[type="checkbox"]:checked .room {
 
   /* header */
   .header {
-    height: 30%;
   }
 
   .free {
-    margin-bottom: .5rem;
+    margin-left: .5rem;
   }
 
   /* rooms */
+  .room__btns {
+    margin-top: -2rem;
+  }
 
+  /* bars */
+  .temp, .humidity, .co2 {
+    width: 77.5%;
+  }
+
+  .value, .valueCo2 {
+
+  }
+
+  .label {
+
+  }
 }
 
 /* mobile */
-@media (max-width: 36em) {
+@media (max-width: 44em) {
 
   /* layout */
   .dashboard {
@@ -321,6 +335,7 @@ input[type="checkbox"]:checked .room {
     grid-template-columns: 90vw;
     grid-template-rows: auto;
     grid-gap: 3rem;
+    justify-content: center;
   }
 
   .freeRooms {
@@ -329,7 +344,6 @@ input[type="checkbox"]:checked .room {
     grid-template-columns: 90vw;
     grid-template-rows: auto;
     grid-gap: 3rem;
-    justify-content: center;
   }
 
   .takenRooms {
@@ -345,7 +359,6 @@ input[type="checkbox"]:checked .room {
 
   /* header */
   .header {
-    height: 15%;
   }
 
   .free {
@@ -355,5 +368,6 @@ input[type="checkbox"]:checked .room {
   /* rooms */
   .room__btns {
     flex-direction: row;
+    margin-top: -0rem;
   }
 }

@@ -3,6 +3,7 @@
 const fs = require('fs')
 const ejs = require('ejs')
 const path = require('path')
+const reload = require('path')
 const express = require('express')
 const request = require('request')
 const compression = require('compression')
@@ -53,7 +54,9 @@ function index(req, res, err) {
       return room.occupied === true
     }).reverse()
 
-    console.log("data: ", goodData)
+    console.log("data: ", takenRooms)
+
+    reload(app)
 
     res.render('main.ejs', {
       free: freeRooms,
@@ -62,6 +65,12 @@ function index(req, res, err) {
       date: date
     })
   }
+}
+
+function offline(req, res, err) {
+  res.render('offline.ejs', {
+		offline: "We were unable to connect to the internet... Please try again later."
+	})
 }
 
 function fallback(req, res, err) {
