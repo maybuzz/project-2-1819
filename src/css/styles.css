@@ -59,7 +59,7 @@ body {
   background-color: var(--color-backgr);
 }
 
-main {
+.dashboard {
   height: 100%;
   margin: 1.5rem 0 2rem;
   display: grid;
@@ -69,6 +69,10 @@ main {
   grid-template-columns: 100%;
   grid-template-rows: auto;
   grid-gap: 3rem;
+}
+
+.error {
+  height: 100%;
 }
 
 .freeRooms {
@@ -128,7 +132,6 @@ p {
 /* buttons */
 .btn {
   margin-top: -2.5rem;
-  background-color: #fff;
   height: 2rem;
   background-color: var(--color-title);
   border-radius: 5px;
@@ -156,14 +159,18 @@ input[type="checkbox"]:checked ~ .btn__booked {
   color: #fff;
 }
 
+input[type="checkbox"]:checked .room {
+  border: solid 2px yellow;
+}
+
 .btn__book:hover, .btn__book:focus {
   color: #fff;
   background-color: var(--color-title-dark);
 }
 
 .btn__booked:hover, .btn__booked:focus {
-  color: #fff !important;
-  background-color: var(--color-bar-bad) !important;
+  color: #fff;
+  background-color: var(--color-bar-bad);
 }
 
 /* styles */
@@ -242,14 +249,40 @@ input[type="checkbox"]:checked ~ .btn__booked {
   display: inline-block;
 }
 
+.valueCo2 {
+  font-family: 'Brando Semibold', sans-serif;
+  font-size: 1.15rem;
+  display: inline-block;
+  margin-right: -2.25rem;
+}
 
+/* error */
+.error__title {
+  margin-top: 4rem;
+}
+
+.btn__error {
+  background-color: tomato;
+  border-radius: 5px;
+  padding: .6rem 1rem;
+  color: #fff;
+}
+
+.container__error {
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+.error__icon {
+  margin-top: 3rem;
+}
 
 
 /* tablet */
 @media (max-width: 54em) {
 
   /* layout */
-  main {
+  .dashboard {
     margin: 1.5rem 0 2rem;
     grid-gap: 2rem;
   }
@@ -281,7 +314,7 @@ input[type="checkbox"]:checked ~ .btn__booked {
 @media (max-width: 36em) {
 
   /* layout */
-  main {
+  .dashboard {
     grid-template-areas:
     "free"
     "taken";

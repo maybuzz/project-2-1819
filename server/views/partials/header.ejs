@@ -1,4 +1,9 @@
 <header>
   <h1><span class="amount"><%= free.length %></span> out of <span class="total"><%= data.length %></span> meeting rooms available</h1>
-  <h3 class="time">het is nu <%= date %></h3>
+
+  <h3 id="time" class="time"></h3>
+
+  <noscript>
+    <h3 class="time">current time: <%= date %></h3>
+  </noscript>
 </header>

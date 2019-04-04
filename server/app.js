@@ -15,6 +15,7 @@ app
   .set('view engine', 'ejs')
   .set('views', path.join(__dirname, 'views'))
   .get('/', index)
+  .get('/offline', offline)
   .get('*', fallback)
   .listen(process.env.PORT || 3000)
 
@@ -52,26 +53,11 @@ function index(req, res, err) {
       return room.occupied === true
     }).reverse()
 
-    // console.log("data: ", takenRooms)
-
-    // temp: 100% = 40 0% = 0 40:100xvalue
-    // humidity: 100% = 100 0% = 0 100:100xvalue : check
-    // co2: 100% = 2000 0% = 0 2000:100xvalue + if 2000 of meer dan = 100% + melding
-
-    let barsData = goodData.map(room => (
-      {
-        temp: room.temp/40*100,
-        humidity: room.humidity,
-        co2: room.co2/2000*100
-      }
-    ))
-
     console.log("data: ", goodData)
 
     res.render('main.ejs', {
       free: freeRooms,
       taken: takenRooms,
-      bars: barsData,
       data: data,
       date: date
     })
@@ -80,6 +66,6 @@ function index(req, res, err) {
 
 function fallback(req, res, err) {
 	res.render('error.ejs', {
-		error: "Deze pagina lijkt (nog) niet niet te bestaan"
+		error: "Error 404 - Page not found"
 	})
 }

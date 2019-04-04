@@ -15,6 +15,7 @@ gulp.task('css', () => {
 
 gulp.task('js', () => {
     return gulp.src([
+      'src/js/clock.js',
       'src/js/localStorage.js',
       'src/js/swCheck.js'
     ])

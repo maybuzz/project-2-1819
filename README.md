@@ -35,7 +35,7 @@ The idea of this app is that employees of the Maribeau office can easily see wha
 ### Requirements
 The application should be able to...
 - [ ] be viewed in an optimal manner in all modern browsers (including IE11)
-- [ ] be accessible for a wide range of people (e.g. people using screen-readers)
+- [x] be accessible for a wide range of people (e.g. people using screen-readers)
 - [x] run without JS
 - [ ] provide the user with useful information if the internet connection is (temporarily) lost
 - [ ] leverage techniques to reduce the time to interactive
@@ -43,15 +43,25 @@ The application should be able to...
 - [ ] leverage techniques to progressively enhance the user experience through JS and CSS
 
 
-
 ## To-do
-- [ ] style time
-- [ ] animate time
-- [x] server
-- [ ] filter rooms, different sections
-- [ ] change span width according to data
-  - [ ] add inline styling width
-- [ ] change color span according to value
+- [x] Nodejs, express server
+- [x] Responsive design
+- [x] Filter rooms, different sections
+- [ ] Server
+  - [x] Serve time, `noscript` tag
+  - [x] Change bars width according to data
+- [x] Client
+  - [x] Book rooms, `localStorage`
+  - [x] Realtime clock
+- [ ] Progressive enhancements
+  - [ ] Change color span according to value
+  - [ ] Update data without refresh
+  - [ ] Notification when level raise to high
+  - [ ] Inform users about the environmental conditions (how they effect each other etc.)
+- [ ] Performance
+  - [ ] Perceived performance
+  - [ ] Critical css
+
 
 ## Resources
 - [Current dashboard at Maribeau office](https://blog.mirabeau.nl/nl/articles/a_smart_meeting_room_dashboard_in_airport_style/ytBXX0WaCkmokgS6ScSOI)
