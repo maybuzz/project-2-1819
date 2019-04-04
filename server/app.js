@@ -3,7 +3,7 @@
 const fs = require('fs')
 const ejs = require('ejs')
 const path = require('path')
-const reload = require('path')
+// const reload = require('reload')
 const express = require('express')
 const request = require('request')
 const compression = require('compression')
@@ -56,8 +56,8 @@ function index(req, res, err) {
 
     console.log("data: ", takenRooms)
 
-    reload(app)
-
+    // reload(app)
+    
     res.render('main.ejs', {
       free: freeRooms,
       taken: takenRooms,
