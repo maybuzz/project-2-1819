@@ -1,6 +1,6 @@
 {
   "name": "Maribeau meeting rooms",
-  "short_name": "Maribeau rooms",
+  "short_name": "MariRooms",
   "icons": [{
     "src": "img/maribeau-icon-500.png",
       "sizes": "512x512",
