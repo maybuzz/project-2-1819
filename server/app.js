@@ -11,8 +11,8 @@ const app = express()
 
 app
   .use(compression())
-  .use((req, res, next) => { res.setHeader('Cache-Control', 'max-age=' + 365 * 24 * 60 * 60);  next() })
   .use(express.static(path.join(__dirname, 'static')))
+  .use((req, res, next) => { res.setHeader('Cache-Control', 'max-age=' + 365 * 24 * 60 * 60);  next() })
   .set('view engine', 'ejs')
   .set('views', path.join(__dirname, 'views'))
   .get('/', index)
@@ -57,7 +57,7 @@ function index(req, res, err) {
     console.log("data: ", takenRooms)
 
     // reload(app)
-    
+
     res.render('main.ejs', {
       free: freeRooms,
       taken: takenRooms,
