@@ -2,7 +2,15 @@ const CACHE_NAME = 'maribeau-cache'
 const urlsToCache = [
   '/',
   '/*',
-  '/offline'
+  '/offline',
+  '/css/index.css',
+  '/css/fonts/Brando-Sans-Text.otf',
+  '/css/fonts/Brando-Sans-Light.otf',
+  '/css/fonts/Brando-Sans-SemiBold.otf',
+  '/css/fonts/Brando-Sans-Text.woff',
+  '/css/fonts/Brando-Sans-Light.woff',
+  '/css/fonts/Brando-Sans-Semi-Bold.woff',
+  '/js/main.js'
 ]
 
 self.addEventListener('install', function(event) {

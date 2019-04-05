@@ -142,7 +142,6 @@ p {
   color: #fff;
 }
 
-
 .free {
   margin-top: -2.5rem;
   height: 2rem;
@@ -167,6 +166,10 @@ p {
   display: none;
 }
 
+.btn__book {
+  margin-right: 6.5rem;
+}
+
 .btn__booked {
   display: none;
 }
@@ -187,7 +190,7 @@ input[type="checkbox"]:checked ~ .btn__booked {
   padding: 0.35rem .5rem;
   float: right;
   color: #fff;
-  margin-left: .5rem;
+  margin-right: 5.75rem;
 }
 
 input[type="checkbox"]:checked ~ .booked {
@@ -291,7 +294,6 @@ input[type="checkbox"]:checked ~ .booked {
   margin-top: 3rem;
 }
 
-
 /* tablet */
 @media (max-width: 54em) {
 
@@ -311,10 +313,15 @@ input[type="checkbox"]:checked ~ .booked {
     text-align: center;
   }
 
-  /* header */
-  .header {
+  .btn__book {
+    margin-right: 6.5rem;
   }
 
+  .btn__booked {
+    margin-right: 5.75rem;
+  }
+
+  /* header */
   .free, .booked {
     margin-left: 1rem;
   }
@@ -329,13 +336,6 @@ input[type="checkbox"]:checked ~ .booked {
     width: 77.5%;
   }
 
-  .value, .valueCo2 {
-
-  }
-
-  .label {
-
-  }
 }
 
 /* mobile */
@@ -369,14 +369,18 @@ input[type="checkbox"]:checked ~ .booked {
     justify-content: center;
   }
 
-  /* buttons */
-
   /* header */
-  .header {
-  }
-
   .free {
     margin-left: 1rem;
+  }
+
+  /* buttons */
+  .btn__book, .btn__booked {
+    margin-right: 6.5rem;
+  }
+
+  .btn__booked {
+    margin-right: 5.75rem;
   }
 
   /* rooms */

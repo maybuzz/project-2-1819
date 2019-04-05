@@ -3,18 +3,20 @@
 ## Summary
 Meeting room dashboard application for the Maribeau `smart office` in Amsterdam.
 
-![vergaderruimtes](/img/vergaderruimtes.png)
+![vergaderruimtes](/img/final.png)
 
 ## Table of contents
 - [Live demo](#Live-demo)
 - [Install](#Install)
 - [Concept](#Concept)
   - [Requirements](#Requirements)
+- [Performance](#Performance)
+- [Progressive enhancements](#Progressive-enhancements)
 - [To-do](#To-do)
 - [Resources](#Resources)
 
 ## Live demo
-[Click here](...) to see my live demo.
+[Click here](https://mirarooms.herokuapp.com/) to see my live demo.
 
 ## Install
 To install this project you'll have to fork this repository and open your terminal
@@ -34,32 +36,52 @@ The idea of this app is that employees of the Maribeau office can easily see wha
 
 ### Requirements
 The application should be able to...
-- [ ] be viewed in an optimal manner in all modern browsers (including IE11)
-- [x] be accessible for a wide range of people (e.g. people using screen-readers)
-- [x] run without JS
-- [ ] provide the user with useful information if the internet connection is (temporarily) lost
-- [ ] leverage techniques to reduce the time to interactive
-- [ ] leverage techniques improve perceived performance
-- [ ] leverage techniques to progressively enhance the user experience through JS and CSS
+- be viewed in an optimal manner in all modern browsers (including IE11)
+- be accessible for a wide range of people (e.g. people using screen-readers)
+- run without JS
+- provide the user with useful information if the internet connection is (temporarily) lost
+- leverage techniques to reduce the time to interactive
+- leverage techniques improve perceived performance
+- leverage techniques to progressively enhance the user experience through JS and CSS
 
+## Progressive enhancements
+Progressive enhancements are used to enhance the user experience of the app. There is a lot more I wanted to do (such as change the colors of the bars according to the value and notify users when levels raise to high) but due too a lack of time I did not do those things -yet-.
+
+My point with this simple design is that users can see everything in one look. They can see how many rooms there are, as shown below. This shows users how many, of the total rooms, are available.
+
+![header](/img/availablerooms.png)
+
+I also used this design to give the users usable feedback about the rooms. Available rooms are placed at the top. Occupied rooms are placed below. The rooms are labeled according to occupancy. Available rooms are labeled `available` in green, occupied rooms are labeled `occupied` in red. Rooms can also be booked, these will be labeled `booked` in orange and will be placed among the available rooms. In the final version,, the booking of rooms will change the order of the rooms and will be legit.
+
+![audits before sw](/img/rooms.png)
+
+## Performance
+The performance of an app or website is very important. I used a couple different techniques to add to the performance. For example, I installed a `service worker` so files can be served offline and pages will be cached. This application is so small, it's hard to perfect the performance.
+
+![audits before sw](/img/audits-bfor-sw.png)
+![audits after sw](/img/audits-after-sw.png)
+![network](/img/network-final.png)
 
 ## To-do
 - [x] Nodejs, express server
+- [x] Runs without JS
 - [x] Responsive design
 - [x] Filter rooms, different sections
-- [ ] Server
+- [x] Server
   - [x] Serve time, `noscript` tag
   - [x] Change bars width according to data
 - [x] Client
   - [x] Book rooms, `localStorage`
   - [x] Realtime clock
+- [x] Performance
+  - [x] Service worker and cache control
+  - [x] Offline page
+  - [x] Perceived performance
+  - [x] Critical css
 - [ ] Progressive enhancements
   - [ ] Change color span according to value
   - [ ] Update data without refresh
-  - [ ] Notification when level raise to high
-- [ ] Performance
-  - [ ] Perceived performance
-  - [ ] Critical css
+  - [ ] Notification when levels raise to high
 
 
 ## Resources
