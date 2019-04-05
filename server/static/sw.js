@@ -1,7 +1,7 @@
 const CACHE_NAME = 'maribeau-cache'
 const urlsToCache = [
   '/',
-  '/*',
+  '*',
   '/offline',
   '/css/index.css',
   '/css/fonts/Brando-Sans-Text.otf',

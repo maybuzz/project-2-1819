@@ -58,8 +58,13 @@ I also used this design to give the users usable feedback about the rooms. Avail
 ## Performance
 The performance of an app or website is very important. I used a couple different techniques to add to the performance. For example, I installed a `service worker` so files can be served offline and pages will be cached. This application is so small, it's hard to perfect the performance.
 
+The images below show the audits I did in my Chrome browser. The first is before I implemented the service worker, the second one is after. As you can see the service worker improved the `PWA` and `Accessibility`. Before the service worker I already implemented `compression`, `gulp` and `critical css`.
+
 ![audits before sw](/img/audits-bfor-sw.png)
 ![audits after sw](/img/audits-after-sw.png)
+
+The final image show the rendering of the different files. Because the app is so small it only takes a few seconds to render everything. Still, the `critical css` and `font-display: swap` make sure styling is shown before the rendering is done.
+
 ![network](/img/network-final.png)
 
 ## To-do
