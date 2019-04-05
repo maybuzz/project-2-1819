@@ -53,8 +53,6 @@ function index(req, res, err) {
       return room.occupied === true
     }).reverse()
 
-    console.log("data: ", takenRooms)
-
     res.render('main.ejs', {
       free: freeRooms,
       taken: takenRooms,
